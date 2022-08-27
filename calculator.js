@@ -8,16 +8,15 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 function operate(operator, a, b) {
-    console.log(operator, a, b);
     switch (operator) {
         case '+':
-            return add(a, b)
+            return add(a, b);
         case '-':
-            return subtract(a, b)  
+            return subtract(a, b);
         case '*':
-            return multiply(a, b)
+            return multiply(a, b);
         case '/':
-            return divide(a, b)       
+            return divide(a, b);      
         default:
             break;
 
@@ -39,7 +38,11 @@ function initEventListeners() {
     // Numbers
     for(let num of numbers) {
         num.addEventListener('click', e => {
-            // TODO: add protection against . and e
+            // Prevent . or e from occurring twice by supressing event changes
+            if (num['value'] === '.' && displayMain.textContent.includes('.')
+            || num['value'] === 'e' && displayMain.textContent.includes('e')
+            ) return;
+            // Else
             displayMain.textContent += num.value;
         })
     }
@@ -47,12 +50,16 @@ function initEventListeners() {
     // Normal operators
     for(let op of operators) {
         op.addEventListener('click', e => {
-            if(!isNumber(value1)) {
+            // Passes if/else cascade if display is empty, exits out of function entirely if operator stays the same
+            if(!displayMain.textContent) {
+                if(op.value === operator) return;
+            } else if(!isNumber(value1)) {
                 value1 = Number(displayMain.textContent);
             } else {
                 value2 = Number(displayMain.textContent);
                 value1 = operate(operator, value1, value2);
             }
+            
             operator = op.value;
             displayPrev.textContent = `${value1} ${operator}`;
             displayMain.textContent = '';
