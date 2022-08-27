@@ -29,6 +29,7 @@ function initEventListeners() {
     const operators = document.querySelectorAll('button[data-btn="operator"]');
     const specials = {
         equals: document.querySelector('button[data-btn="equals"]'),    
+        del: document.querySelector('button[data-btn="del"]'),    
         clear: document.querySelector('button[data-btn="clear"]'),    
     };
     const displayMain = document.querySelector('#display-main');
@@ -66,6 +67,15 @@ function initEventListeners() {
             displayMain.textContent = operate(operator, value1, value2);
             value1 = undefined;
         }
+    })
+    specials.del.addEventListener('click', e => {
+        displayMain.textContent = displayMain.textContent.slice(0, displayMain.textContent.length-1)
+    })
+    specials.clear.addEventListener('click', e => {
+        value1 = undefined;
+        operator = undefined;
+        value2 = undefined;
+        displayMain.textContent = displayPrev.textContent = '';
     })
 } 
 
