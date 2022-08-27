@@ -1,0 +1,15 @@
+#calculator {
+    max-width: 500px;
+}
+#interface {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+#numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+#operations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
