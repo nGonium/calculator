@@ -11,30 +11,35 @@
 <body>
     <div id="calculator">
         <div id="display">
-            000
+            <div id="display-prev">
+
+            </div>
+            <div id="display-main">
+
+            </div>
         </div>
         <div id="interface">
             <div id="numpad">
-                <button value="7">7</button>
-                <button value="8">8</button>
-                <button value="9">9</button>
-                <button value="4">4</button>
-                <button value="5">5</button>
-                <button value="6">6</button>
-                <button value="1">1</button>
-                <button value="2">2</button>
-                <button value="3">3</button>
-                <button value="0">0</button>
-                <button value=".">.</button>
-                <button value="e">x10</button>
+                <button value="7" data-btn="number">7</button>
+                <button value="8" data-btn="number">8</button>
+                <button value="9" data-btn="number">9</button>
+                <button value="4" data-btn="number">4</button>
+                <button value="5" data-btn="number">5</button>
+                <button value="6" data-btn="number">6</button>
+                <button value="1" data-btn="number">1</button>
+                <button value="2" data-btn="number">2</button>
+                <button value="3" data-btn="number">3</button>
+                <button value="0" data-btn="number">0</button>
+                <button value="." data-btn="number">.</button>
+                <button value="e" data-btn="number">x10</button>
             </div>
             <div id="operations">
-                <button value="+">+</button>
-                <button value="-">-</button>
-                <button value="x">x</button>
-                <button value="/">/</button>
-                <button value="=">=</button>
-                <button value="clr">CLR</button>
+                <button value="+" data-btn="operator">+</button>
+                <button value="*" data-btn="operator">x</button>
+                <button value="-" data-btn="operator">-</button>
+                <button value="/" data-btn="operator">/</button>
+                <button value="=" data-btn="equals">=</button>
+                <button value="clr" data-btn="clear">CLR</button>
             </div>
         </div>
     </div>

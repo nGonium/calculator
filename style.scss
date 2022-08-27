@@ -1,6 +1,11 @@
 #calculator {
     max-width: 500px;
 }
+#display-main, #display-prev {
+    height: 1.4em;
+    background-color: #ddd;
+    margin-bottom: .2em;
+}
 #interface {
     display: grid;
     grid-template-columns: 2fr 1fr;
