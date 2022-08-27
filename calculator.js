@@ -38,9 +38,10 @@ function initEventListeners() {
     // Numbers
     for(let num of numbers) {
         num.addEventListener('click', e => {
+            console.log(displayMain.textContent);
             // Prevent . or e from occurring twice by supressing event changes
-            if (num['value'] === '.' && displayMain.textContent.includes('.')
-            || num['value'] === 'e' && displayMain.textContent.includes('e')
+            if(num['value'] === '.' && (!displayMain.textContent || displayMain.textContent.includes('.') || displayMain.textContent.includes('e'))
+            || num['value'] === 'e' && (!displayMain.textContent || displayMain.textContent.includes('e') || displayMain.textContent[displayMain.textContent.length-1] === '.')
             ) return;
             // Else
             displayMain.textContent += num.value;
@@ -59,7 +60,7 @@ function initEventListeners() {
                 value2 = Number(displayMain.textContent);
                 value1 = operate(operator, value1, value2);
             }
-            
+
             operator = op.value;
             displayPrev.textContent = `${value1} ${operator}`;
             displayMain.textContent = '';
