@@ -12,16 +12,12 @@ function operate(operator, a, b) {
     switch (operator) {
         case '+':
             return add(a, b)
-            break;
         case '-':
-            return subtract(a, b)
-            break;    
+            return subtract(a, b)  
         case '*':
             return multiply(a, b)
-            break;
         case '/':
-            return divide(a, b)
-            break;          
+            return divide(a, b)       
         default:
             break;
 
@@ -52,14 +48,12 @@ function initEventListeners() {
         op.addEventListener('click', e => {
             if(!isNumber(value1)) {
                 value1 = Number(displayMain.textContent);
-                operator = op.value;
-                displayPrev.textContent = `${value1} ${operator}`;
             } else {
                 value2 = Number(displayMain.textContent);
                 value1 = operate(operator, value1, value2);
-                operator = op.value;
-                displayPrev.textContent = `${value1} ${operator}`
             }
+            operator = op.value;
+            displayPrev.textContent = `${value1} ${operator}`;
             displayMain.textContent = '';
         })
     }
